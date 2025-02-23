@@ -12,4 +12,5 @@ public interface APIInterface2 {
     @GET("products")
     Call<ProductListResponse> getProductList();
 
+
 }

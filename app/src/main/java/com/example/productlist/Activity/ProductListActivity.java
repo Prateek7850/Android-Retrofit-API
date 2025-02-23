@@ -41,6 +41,7 @@ public class ProductListActivity extends AppCompatActivity {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         callAPI();
     }
+
     private void callAPI(){
         Call<ProductListResponse> call = APIClient2.getInstance().getAPI().getProductList();
         call.enqueue(new Callback<ProductListResponse>() {
@@ -49,7 +50,7 @@ public class ProductListActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     binding.progrssBar.setVisibility(View.GONE);
                     Toast.makeText(ProductListActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                    //giving the items
+                    //givig the items
                     ProductAdapter adapter = new ProductAdapter(response.body().getProducts(), ProductListActivity.this);
                     binding.recyclerView.setAdapter(adapter);
                 }else{

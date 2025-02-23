@@ -1,5 +1,6 @@
 package com.example.productlist;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -45,7 +46,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.holder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductAdapter.holder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductAdapter.holder holder, @SuppressLint("RecyclerView") int position) {
         holder.txtName.setText(productsItemList.get(position).getTitle());
         holder.txtDesc.setText(productsItemList.get(position).getDescription());
         Glide.with(context).load(productsItemList.get(position).getThumbnail()).into(holder.profileImage);
